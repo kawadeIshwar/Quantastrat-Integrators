@@ -1,0 +1,62 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fffaf6;
+  --fg: #1a1a2e;
+  --orange: #ff6b00;
+  --deep: #e85d04;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+::selection { background: rgba(255, 107, 0, 0.30); color: #fff; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #fff5ee; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #ff6b00, #e85d04); border-radius: 10px; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-6 md:px-10; }
+  .heading-xl { @apply font-display text-5xl md:text-7xl lg:text-[88px] leading-[0.95] tracking-tight; }
+  .heading-lg { @apply font-display text-4xl md:text-6xl leading-[1] tracking-tight; }
+  .heading-md { @apply font-display text-3xl md:text-5xl leading-tight tracking-tight; }
+  .eyebrow { @apply inline-flex items-center gap-2 rounded-full border border-brand-orange/20 bg-brand-orange/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange; }
+  .glass { @apply rounded-3xl border border-orange-100/80 bg-white/80 backdrop-blur-sm shadow-card; }
+  .btn-primary { @apply inline-flex items-center gap-2 rounded-full bg-cta-gradient px-7 py-3.5 text-sm font-semibold text-white shadow-glow-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-glow; }
+  .btn-ghost { @apply inline-flex items-center gap-2 rounded-full border-2 border-orange-200 bg-white px-7 py-3 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-brand-orange hover:bg-brand-orange/5 hover:text-brand-orange; }
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #ff8a3d 0%, #ff6b00 40%, #e85d04 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle dot pattern for section backgrounds */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255,107,0,0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
