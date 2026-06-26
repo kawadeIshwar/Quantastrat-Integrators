@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -30,17 +30,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-4"
+        }`}
     >
       <div className="container-x">
         <div
-          className={`flex items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-300 ${
-            scrolled
+          className={`flex items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-300 ${scrolled
               ? "border-orange-100 bg-white/90 backdrop-blur-md shadow-[0_4px_24px_rgba(255,107,0,0.08)]"
               : "border-transparent bg-transparent"
-          }`}
+            }`}
         >
           <Logo />
           <nav className="hidden items-center gap-0.5 md:flex">
@@ -50,12 +48,10 @@ export default function Navbar() {
                 <Link
                   key={n.href}
                   href={n.href}
-                  prefetch={true}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
-                    active
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${active
                       ? "bg-brand-orange/10 text-brand-orange"
                       : "text-gray-600 hover:bg-orange-50 hover:text-brand-orange"
-                  }`}
+                    }`}
                 >
                   {n.label}
                 </Link>
@@ -86,7 +82,6 @@ export default function Navbar() {
                 <Link
                   key={n.href}
                   href={n.href}
-                  prefetch={true}
                   className="block rounded-2xl px-4 py-3 text-base text-gray-700 hover:bg-orange-50 hover:text-brand-orange"
                 >
                   {n.label}

@@ -132,13 +132,12 @@ function InfoCard({
   return href ? <a href={href}>{content}</a> : content;
 }
 
+// Simplified Field — no per-field useState, uses CSS :placeholder-shown trick for floating label
 function Field({
   label, name, type = "text", required, textarea
 }: { label: string; name: string; type?: string; required?: boolean; textarea?: boolean }) {
-  const [val, setVal] = useState("");
-  const filled = val.length > 0;
   const common =
-    "peer w-full rounded-2xl border border-orange-100 bg-white px-4 pb-3 pt-6 text-sm text-gray-900 outline-none transition-all duration-300 focus:border-brand-orange/60 focus:ring-2 focus:ring-brand-orange/30";
+    "peer w-full rounded-2xl border border-orange-100 bg-white px-4 pb-3 pt-6 text-sm text-gray-900 outline-none transition-all duration-200 focus:border-brand-orange/60 focus:ring-2 focus:ring-brand-orange/30 placeholder-transparent";
   return (
     <label className="relative block">
       {textarea ? (
@@ -146,8 +145,7 @@ function Field({
           name={name}
           required={required}
           rows={5}
-          value={val}
-          onChange={(e) => setVal(e.target.value)}
+          placeholder={label}
           className={`${common} resize-none`}
         />
       ) : (
@@ -155,16 +153,11 @@ function Field({
           name={name}
           type={type}
           required={required}
-          value={val}
-          onChange={(e) => setVal(e.target.value)}
+          placeholder={label}
           className={common}
         />
       )}
-      <span
-        className={`pointer-events-none absolute left-4 text-xs uppercase tracking-[0.18em] text-gray-400 transition-all duration-200 ${
-          filled ? "top-2" : "top-4 text-sm normal-case tracking-normal text-gray-500 peer-focus:top-2 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-[0.18em] peer-focus:text-brand-orange"
-        }`}
-      >
+      <span className="pointer-events-none absolute left-4 top-2 text-xs uppercase tracking-[0.18em] text-gray-400 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-gray-500 peer-focus:top-2 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-[0.18em] peer-focus:text-brand-orange">
         {label}{required ? " *" : ""}
       </span>
     </label>

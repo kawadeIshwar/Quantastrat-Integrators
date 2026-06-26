@@ -1,11 +1,10 @@
-"use client";
-
-import { useState } from "react";
+// Server Component — no "use client" needed
 import {
   UserCheck, FileSignature, ShieldCheck, Cpu, Wrench, Workflow, Crown, Factory,
-  Check, ChevronDown, ArrowUpRight
+  Check, ArrowUpRight
 } from "lucide-react";
 import Link from "next/link";
+import { Accordion } from "./Accordion";
 
 const SERVICES = [
   {
@@ -176,25 +175,5 @@ export default function ServicesContent() {
         </div>
       </section>
     </>
-  );
-}
-
-function Accordion({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <li>
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-6 p-6 text-left transition-colors hover:bg-orange-50"
-      >
-        <span className="font-display text-lg font-medium text-brand-ink">{q}</span>
-        <ChevronDown className={`h-5 w-5 flex-shrink-0 text-brand-orange transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
-      </button>
-      {open && (
-        <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-gray-600">{a}</p>
-        </div>
-      )}
-    </li>
   );
 }
