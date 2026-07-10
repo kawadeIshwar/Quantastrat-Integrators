@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="bg-brand-ink">
         <div className="container-x grid gap-10 py-16 md:grid-cols-12">
           <div className="md:col-span-4">
-            <Logo />
+            <Logo dark />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-gray-400">
               Quantastrat Integrators is a premium recruitment and staffing partner connecting enterprises with exceptional talent across IT, Non-IT, manufacturing and beyond.
             </p>
@@ -26,7 +26,6 @@ export default function Footer() {
                   key={i}
                   href={href}
                   aria-label="social link"
-                  suppressHydrationWarning
                   className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-400 transition-all hover:-translate-y-0.5 hover:border-brand-orange hover:text-brand-orange"
                 >
                   <Icon className="h-4 w-4" />
@@ -38,10 +37,10 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white">Company</h4>
             <ul className="mt-5 space-y-3 text-sm text-gray-400">
-              <li><Link suppressHydrationWarning className="transition-colors hover:text-brand-orange" href="/about">About Us</Link></li>
-              <li><Link suppressHydrationWarning className="transition-colors hover:text-brand-orange" href="/services">Services</Link></li>
-              <li><Link suppressHydrationWarning className="transition-colors hover:text-brand-orange" href="/careers">Openings</Link></li>
-              <li><Link suppressHydrationWarning className="transition-colors hover:text-brand-orange" href="/contact">Contact</Link></li>
+              <li><Link className="transition-colors hover:text-brand-orange" href="/about">About Us</Link></li>
+              <li><Link className="transition-colors hover:text-brand-orange" href="/services">Services</Link></li>
+              <li><Link className="transition-colors hover:text-brand-orange" href="/careers">Openings</Link></li>
+              <li><Link className="transition-colors hover:text-brand-orange" href="/contact">Contact</Link></li>
             </ul>
           </div>
 
@@ -71,9 +70,9 @@ export default function Footer() {
           <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-gray-500 md:flex-row">
             <p suppressHydrationWarning>© {new Date().getFullYear()} Quantastrat Integrators. All rights reserved.</p>
             <p className="flex items-center gap-4">
-              <Link suppressHydrationWarning href="#" className="transition-colors hover:text-brand-orange">Privacy</Link>
-              <Link suppressHydrationWarning href="#" className="transition-colors hover:text-brand-orange">Terms</Link>
-              <Link suppressHydrationWarning href="#" className="transition-colors hover:text-brand-orange">Cookies</Link>
+              <Link href="#" className="transition-colors hover:text-brand-orange">Privacy</Link>
+              <Link href="#" className="transition-colors hover:text-brand-orange">Terms</Link>
+              <Link href="#" className="transition-colors hover:text-brand-orange">Cookies</Link>
             </p>
           </div>
         </div>

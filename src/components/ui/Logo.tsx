@@ -1,23 +1,17 @@
-"use client";
-
 import Link from "next/link";
 
-export default function Logo() {
+export default function Logo({ compact = false, dark = false }: { compact?: boolean; dark?: boolean }) {
   return (
-    <Link
-      href="/"
-      className="group inline-flex items-center"
-      aria-label="Quantastrat Integrators home"
-      suppressHydrationWarning
-    >
-      <img
-        src="/logo.png"
-        alt="Quantastrat Integrators Logo"
-        className="h-10 w-auto"
-        width={180}
-        height={40}
-        suppressHydrationWarning
-      />
+    <Link href="/" className="group inline-flex items-center gap-3" aria-label="Quantastrat Integrators home">
+      <span className="inline-flex items-center gap-3">
+        <img
+          src="/logo.png"
+          alt="Quantastrat Integrators Logo"
+          className={`${compact ? "h-9 w-9" : "h-10 w-auto"} ${dark ? "brightness-0 invert" : ""}`}
+          width={compact ? 36 : 180}
+          height={compact ? 36 : 40}
+        />
+      </span>
     </Link>
   );
 }

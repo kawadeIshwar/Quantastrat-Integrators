@@ -34,27 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
-      <head>
-        {/*
-          Fix hydration mismatch caused by browser extensions (Grammarly, Google Translate, etc.)
-          injecting <span> tags into <a> elements before React hydrates.
-          This script runs synchronously before React, removing those injected nodes.
-        */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                document.querySelectorAll('a > span:not([class]):not([id])').forEach(function(s) {
-                  while (s.firstChild) s.parentNode.insertBefore(s.firstChild, s);
-                  s.remove();
-                });
-              } catch(e) {}
-            `,
-          }}
-        />
-      </head>
-      <body className="antialiased" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+      <body className="antialiased">
         <ScrollToTop />
         <Navbar />
         <main className="relative">{children}</main>
