@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -17,13 +15,6 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: true,
   productionBrowserSourceMaps: false,
-
-  // Critical CSS inlining — PRODUCTION ONLY (critters is too slow for dev)
-  ...(isProd && {
-    experimental: {
-      optimizeCss: true,
-    }
-  }),
 
   // Aggressive caching for static assets — reduces repeat-visit load to near zero
   async headers() {

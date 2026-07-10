@@ -38,7 +38,8 @@ const config: Config = {
         float: "float 7s ease-in-out infinite",
         shimmer: "shimmer 2.5s linear infinite",
         "gradient-x": "gradient-x 8s ease infinite",
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "fade-in": "fadeIn 0.6s ease-out forwards"
       },
       keyframes: {
         marquee: {
@@ -60,6 +61,10 @@ const config: Config = {
         "gradient-x": {
           "0%,100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" }
+        },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
         }
       },
       boxShadow: {
