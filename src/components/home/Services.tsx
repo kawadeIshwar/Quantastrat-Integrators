@@ -1,17 +1,17 @@
-﻿import {
+import {
   UserCheck, FileSignature, ShieldCheck, Cpu, Factory, Workflow, Crown, Wrench, ArrowUpRight
 } from "lucide-react";
 import Link from "next/link";
 
 const SERVICES = [
+  { Icon: Factory, title: "Manufacturing Recruitment", desc: "Plants, supply chain, R&D and engineering talent." },
   { Icon: UserCheck, title: "Permanent Hiring", desc: "End-to-end search for full-time leadership and IC roles." },
   { Icon: FileSignature, title: "Contract Staffing", desc: "Flexible workforce with fast ramp-up and compliance." },
-  { Icon: ShieldCheck, title: "Payroll & Compliance", desc: "Statutory, payroll and compliance handled end-to-end." },
-  { Icon: Cpu, title: "IT Staffing", desc: "Engineering, data, cloud, security & product roles." },
-  { Icon: Wrench, title: "Non-IT Staffing", desc: "Sales, ops, finance, HR and shared services." },
-  { Icon: Workflow, title: "RPO", desc: "Embedded recruitment teams that scale with you." },
+  { Icon: ShieldCheck, title: "Payroll & Compliance Management", desc: "Statutory, payroll and compliance handled end-to-end." },
   { Icon: Crown, title: "Executive Search", desc: "Confidential, board-level and C-suite mandates." },
-  { Icon: Factory, title: "Manufacturing Hiring", desc: "Plants, supply chain, R&D and engineering talent." }
+  { Icon: Workflow, title: "Recruitment Process Outsourcing (RPO)", desc: "Embedded recruitment teams that scale with you." },
+  { Icon: Wrench, title: "Non-IT Recruitment", desc: "Sales, ops, finance, HR and shared services." },
+  { Icon: Cpu, title: "IT Staffing", desc: "Engineering, data, cloud, security & product roles." }
 ];
 
 export default function Services() {
@@ -23,7 +23,6 @@ export default function Services() {
       <div className="container-x relative">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <div className="eyebrow mb-5">What we do</div>
             <h2 className="heading-lg max-w-2xl font-bold text-brand-ink">
               Services built for{" "}
               <span className="text-gradient-orange">every hiring need.</span>

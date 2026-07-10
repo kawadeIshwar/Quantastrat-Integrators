@@ -12,10 +12,10 @@ export default function FinalCTA() {
           <div aria-hidden className="pointer-events-none absolute right-20 bottom-10 h-32 w-32 rounded-full bg-white/5" />
 
           <h2 className="heading-xl relative max-w-4xl text-[26px] font-bold leading-tight text-white sm:text-[32px] md:text-[40px]">
-            Looking for the Right Talent or the Right Opportunity?
+            Let's Build Your Workforce Together
           </h2>
           <p className="relative mt-6 max-w-2xl text-sm text-white/80 md:text-lg">
-            Whether you&apos;re scaling teams or scaling careers — we&apos;ll connect you to the right people, faster.
+            Whether you&apos;re hiring one engineer or building an entire plant team, QuantaStrat delivers recruitment, staffing, payroll, and compliance solutions tailored to your business.
           </p>
           <div className="relative mt-10 flex flex-wrap gap-3 sm:gap-4">
             <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-orange shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-xl sm:px-7 sm:py-3.5">

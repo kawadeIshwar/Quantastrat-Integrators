@@ -17,7 +17,7 @@ export default function PageHero({
         <div className="eyebrow mb-6">{eyebrow}</div>
         <h1 className="heading-xl max-w-5xl font-bold text-brand-ink">{title}</h1>
         {description && (
-          <p className="mt-7 max-w-2xl text-lg text-gray-600 leading-relaxed md:text-xl">{description}</p>
+          <p className="mt-7 max-w-4xl text-lg text-gray-600 leading-relaxed md:text-xl">{description}</p>
         )}
       </div>
     </section>

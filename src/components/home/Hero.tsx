@@ -1,56 +1,71 @@
 import Link from "next/link";
-import { ArrowUpRight, Briefcase, Sparkles, TrendingUp, Users, Clock } from "lucide-react";
-import GradientOrbs from "@/components/ui/GradientOrbs";
+import { ArrowUpRight, Briefcase, Database, Users, MapPin } from "lucide-react";
 
 const STATS = [
-  { icon: TrendingUp, value: "500+", label: "Enterprise Clients" },
-  { icon: Users, value: "1,20,000", label: "Vetted Candidates" },
-  { icon: Clock, value: "28 days", label: "Avg. Time-to-Hire" }
+  { icon: Database, value: "28,00,000+", label: "Candidate Database" },
+  { icon: Users, value: "78", label: "Active Clients" },
+  { icon: MapPin, value: "PAN India", label: "Hiring Network" }
 ];
 
 export default function Hero() {
   return (
     <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-hero-gradient">
-      <GradientOrbs />
-      {/* Decorative grid */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-[5] dot-pattern opacity-40" />
+      {/* ── Rich ambient background ── */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -left-40 -top-40 h-[700px] w-[700px] rounded-full bg-gradient-to-br from-orange-300/25 via-amber-200/15 to-transparent blur-[120px]" />
+        <div className="absolute -right-20 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-orange-200/30 to-transparent blur-[100px]" />
+        <div className="absolute bottom-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gradient-to-t from-amber-200/20 to-transparent blur-[90px]" />
+      </div>
 
-      <div className="container-x relative z-10 pb-12 pt-24 md:pb-16 md:pt-32">
-        <div className="eyebrow mb-6 md:mb-8">
-          <Sparkles className="h-3.5 w-3.5" />
-          Premium Recruitment & Staffing — PAN India
-        </div>
+      {/* ── Decorative dot grid ── */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-[5] dot-pattern opacity-30" />
 
-        <h1 className="heading-xl max-w-4xl font-bold text-brand-ink md:max-w-5xl">
-          Connecting Businesses<br className="hidden lg:block" /> with{" "}
-          <span className="text-gradient-orange">Exceptional Talent.</span>
+      {/* ── Main content ── */}
+      <div className="container-x relative z-10 py-28 md:py-36 lg:py-40">
+
+        {/* ── HEADLINE — full width so it gets maximum space ── */}
+        <h1 className="heading-xl font-bold text-brand-ink max-w-6xl">
+          Recruitment, Staffing, Payroll<br className="hidden lg:block" /> &amp;{" "}
+          <span className="text-gradient-orange">Compliance for Modern Manufacturing Enterprises.</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600 md:mt-8 md:max-w-2xl md:text-xl">
-          Quantastrat Integrators delivers reliable recruitment and staffing solutions across
-          <span className="font-semibold text-brand-ink"> IT, Non-IT, Manufacturing</span> and enterprise sectors — engineered
-          for speed, quality and compliance.
+        {/* ── Sub-copy ── */}
+        <p className="mt-7 max-w-2xl text-base leading-relaxed text-gray-600 md:text-xl">
+          Helping manufacturing and engineering companies build high-performing teams through specialised{" "}
+          <span className="font-semibold text-brand-ink">recruitment, contract staffing, payroll management,</span> and statutory compliance.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3 md:mt-10 md:gap-4">
-          <Link href="/careers" className="btn-primary">
-            <Briefcase className="h-4 w-4" /> View Open Roles
-          </Link>
-          <Link href="/contact" className="btn-ghost">
-            Contact Us <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
+        {/* ── Bottom row: CTAs left + stat cards right ── */}
+        <div className="mt-12 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
 
-        {/* Stat cards - responsive grid */}
-        <div className="mt-12 md:mt-20">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {STATS.map((s) => (
-              <div key={s.label} className="group relative overflow-hidden rounded-2xl border border-white/60 bg-white/70 px-5 py-4 shadow-card backdrop-blur-sm transition-all hover:shadow-card-hover md:px-6 md:py-5">
-                <div className="absolute right-3 top-3 rounded-xl bg-brand-orange/5 p-1.5 md:right-4 md:top-4 md:p-2">
-                  <s.icon className="h-4 w-4 text-brand-orange md:h-5 md:w-5" />
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/contact" className="btn-primary">
+              <Briefcase className="h-4 w-4" /> Hire Talent
+            </Link>
+            <Link href="/careers" className="btn-ghost">
+              Explore Openings <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          {/* ── Stat cards row ── */}
+          <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
+            {STATS.map((s, i) => (
+              <div
+                key={s.label}
+                style={{ animationDelay: `${i * 0.15}s` }}
+                className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/70 bg-white/80 px-6 py-4 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover sm:flex-col sm:items-start sm:gap-2 sm:min-w-[150px]"
+              >
+                {/* Icon bubble */}
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange/10 to-brand-deep/5 ring-1 ring-brand-orange/20 transition-colors group-hover:from-brand-orange/20 group-hover:to-brand-deep/10">
+                  <s.icon className="h-4 w-4 text-brand-orange" />
                 </div>
-                <div className="text-2xl font-bold text-gradient-orange md:text-3xl">{s.value}</div>
-                <div className="mt-1 text-[10px] font-medium uppercase tracking-widest text-gray-500 md:text-xs">{s.label}</div>
+                <div>
+                  <div className="text-2xl font-bold text-gradient-orange leading-none">{s.value}</div>
+                  <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-gray-400">{s.label}</div>
+                </div>
+                {/* Subtle shine */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-card-shine" />
               </div>
             ))}
           </div>

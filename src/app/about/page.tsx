@@ -12,8 +12,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Quantastrat"
-        title="A people business, engineered like a tech company."
-        description="We blend rigorous process, deep market intelligence and human-first consulting to build teams that compound value for India's most ambitious companies."
+        title="Built on Experience. Driven by Partnership."
+        description="QuantaStrat Integrators Pvt. Ltd. was established with a vision to redefine workforce solutions by combining deep recruitment expertise with operational excellence. Today, we partner with businesses across India to deliver recruitment, staffing, payroll, compliance, and HR solutions that help organizations grow with confidence."
       />
       <About />
     </>

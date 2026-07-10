@@ -1,11 +1,11 @@
 import { Check } from "lucide-react";
 
 const POINTS = [
-  { title: "Verified candidates", desc: "Background, skill and reference checks on every shortlist." },
-  { title: "Fast hiring", desc: "First curated shortlist in under 7 days for most roles." },
-  { title: "Compliance support", desc: "Statutory, payroll and contract compliance handled end-to-end." },
-  { title: "Industry expertise", desc: "Specialist recruiters with 8+ years average domain experience." },
-  { title: "PAN India network", desc: "Active sourcing across 30+ cities and remote talent hubs." }
+  { title: "Manufacturing Hiring Expertise", desc: "Specialized recruiters with deep knowledge of plant operations, supply chain, and engineering roles across manufacturing sectors." },
+  { title: "PAN India Recruitment Network", desc: "Local presence across Tier 1, 2 and 3 cities enabling rapid talent mobilization and regional hiring at scale." },
+  { title: "Payroll Accuracy", desc: "Zero-error payroll processing with automated calculations, timely disbursements, and complete audit trails for financial compliance." },
+  { title: "Statutory Compliance Support", desc: "End-to-end management of PF, ESI, PT, and other statutory requirements ensuring 100% regulatory adherence and risk mitigation." },
+  { title: "Dedicated Account Managers", desc: "Single point of contact for all workforce needs with proactive communication, strategic planning, and personalized service delivery." }
 ];
 
 export default function WhyUs() {
@@ -15,10 +15,9 @@ export default function WhyUs() {
 
       <div className="container-x relative grid items-start gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5 lg:sticky lg:top-32">
-          <div className="eyebrow mb-5">Why Quantastrat</div>
           <h2 className="heading-lg font-bold text-brand-ink">
-            An unfair advantage in{" "}
-            <span className="text-gradient-orange">hiring.</span>
+            Why Businesses Choose{" "}
+            <span className="text-gradient-orange">QuantaStrat</span>
           </h2>
           <p className="mt-6 max-w-md text-gray-600 leading-relaxed">
             We combine deep market intelligence, structured assessments and a relentless candidate experience to deliver outcomes — not just CVs.
