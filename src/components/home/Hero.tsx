@@ -29,12 +29,13 @@ export default function Hero() {
       <div className="container-x relative flex min-h-[100svh] items-center py-28 md:py-32 lg:py-36">
         <div className="w-full">
           <div className="max-w-6xl">
-            <h1 className="heading-xl max-w-6xl font-bold text-brand-ink">
+            <h1 className="heading-xl max-w-6xl font-bold text-brand-ink text-5xl sm:text-[56px] md:text-[68px] lg:text-[82px]">
               Recruitment, Staffing, Payroll{" "}
               <span className="block">
                 &amp;{" "}
                 <span className="text-gradient-orange">
-                  Compliance for Modern Manufacturing Enterprises.
+                  Compliance for Modern{" "}
+                  <span className="whitespace-nowrap">Manufacturing Enterprises.</span>
                 </span>
               </span>
             </h1>
