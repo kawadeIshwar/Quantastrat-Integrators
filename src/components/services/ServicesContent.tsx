@@ -143,7 +143,7 @@ export default function ServicesContent() {
             {PROCESS.map((p) => (
               <div key={p.n} className="group relative h-full overflow-hidden rounded-3xl border border-orange-100/60 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange to-brand-deep opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="font-display text-5xl font-bold text-orange-100 group-hover:text-gradient-orange">{p.n}</div>
+                <div className="font-display text-5xl font-bold text-orange-100 group-hover:text-brand-orange">{p.n}</div>
                 <h3 className="mt-3 font-display text-xl font-semibold text-brand-ink">{p.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">{p.d}</p>
               </div>

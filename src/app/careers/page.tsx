@@ -44,7 +44,7 @@ export default function CareersPage() {
             {STATS.map((s) => (
               <div key={s.label} className="group rounded-2xl border border-orange-100/60 bg-white/80 backdrop-blur-sm p-5 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                 <div className="mx-auto mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange to-brand-deep">
-                  <s.Icon className="h-4.5 w-4.5 text-white" />
+                  <s.Icon className="h-5 w-5 text-white" />
                 </div>
                 <div className="font-display text-2xl font-bold text-brand-ink">{s.value}</div>
                 <div className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-gray-500">{s.label}</div>

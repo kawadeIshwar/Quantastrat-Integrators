@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { Job } from "@/lib/jobs";
 
-export default function JobDetailContent({ job, applyUrl }: { job: Job; applyUrl: string }) {
-  const [postedDate, setPostedDate] = useState("");
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-  useEffect(() => {
-    setPostedDate(new Date(job.postedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short" }));
-  }, [job.postedAt]);
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`;
+}
+
+export default function JobDetailContent({ job, applyUrl }: { job: Job; applyUrl: string }) {
+  const postedDate = formatDate(job.postedAt);
 
   return (
     <div className="sticky top-32 rounded-3xl border border-orange-100/60 bg-white p-7 shadow-card">
@@ -35,3 +37,4 @@ export default function JobDetailContent({ job, applyUrl }: { job: Job; applyUrl
     </div>
   );
 }
+

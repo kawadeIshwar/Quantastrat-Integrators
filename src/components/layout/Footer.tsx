@@ -1,17 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
-  const [year, setYear] = useState(2025);
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
   return (
     <footer className="relative mt-32">
       {/* Top gradient line */}
@@ -77,7 +72,7 @@ export default function Footer() {
         <div className="relative">
           <div aria-hidden className="mx-auto h-px w-[92%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-gray-500 md:flex-row">
-            <p>© {year} Quantastrat Integrators. All rights reserved.</p>
+            <p>© {CURRENT_YEAR} Quantastrat Integrators. All rights reserved.</p>
             <p className="flex items-center gap-4">
               <Link href="#" className="transition-colors hover:text-brand-orange">Privacy</Link>
               <Link href="#" className="transition-colors hover:text-brand-orange">Terms</Link>
