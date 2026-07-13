@@ -35,7 +35,7 @@ export default function Hero() {
                 &amp;{" "}
                 <span className="text-gradient-orange">
                   Compliance for Modern{" "}
-                  <span className="whitespace-nowrap">Manufacturing Enterprises.</span>
+                  <span className="lg:whitespace-nowrap">Manufacturing Enterprises.</span>
                 </span>
               </span>
             </h1>
