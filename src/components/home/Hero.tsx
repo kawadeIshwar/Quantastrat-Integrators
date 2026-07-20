@@ -26,17 +26,14 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 -z-[5] dot-pattern opacity-25"
       />
 
-      <div className="container-x relative flex min-h-[100svh] items-center py-28 md:py-32 lg:py-36">
+      <div className="container-x relative flex min-h-[100svh] items-center py-20 md:py-24 lg:py-28">
         <div className="w-full">
           <div className="max-w-6xl">
             <h1 className="heading-xl max-w-6xl font-bold text-brand-ink text-5xl sm:text-[56px] md:text-[68px] lg:text-[82px]">
-              Recruitment, Staffing, Payroll{" "}
-              <span className="block">
-                &amp;{" "}
-                <span className="text-gradient-orange">
-                  Compliance for Modern{" "}
-                  <span className="lg:whitespace-nowrap">Manufacturing Enterprises.</span>
-                </span>
+              Recruitment, Staffing,{" "}
+              <span className="whitespace-nowrap">
+                Payroll &amp;{" "}
+                <span className="text-gradient-orange">Compliance</span>
               </span>
             </h1>
 
@@ -44,13 +41,13 @@ export default function Hero() {
               Helping manufacturing and engineering companies build high-performing
               teams through specialised{" "}
               <span className="font-semibold text-brand-ink">
-                recruitment, contract staffing, payroll management,
+                recruitment, staffing, payroll management,
               </span>{" "}
               and statutory compliance.
             </p>
 
             {/* CTA buttons */}
-            <div className="mt-12 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
                 className="btn-primary min-w-[150px] justify-center"
@@ -70,18 +67,18 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 lg:mt-16">
+          <div className="mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
             {STATS.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
                 className="group relative overflow-hidden rounded-2xl border border-white/80 bg-white/75 p-5 shadow-card backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-brand-orange/20 hover:shadow-card-hover"
               >
-                <div className="flex items-center gap-4 sm:block">
+                <div className="flex items-center gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange/15 to-amber-100 ring-1 ring-brand-orange/15">
                     <Icon className="h-5 w-5 text-brand-orange" />
                   </div>
 
-                  <div className="sm:mt-5">
+                  <div>
                     <p className="text-xl font-bold leading-none text-gradient-orange md:text-2xl">
                       {value}
                     </p>

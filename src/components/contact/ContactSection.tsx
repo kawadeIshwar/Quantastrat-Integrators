@@ -37,7 +37,7 @@ export default function ContactSection() {
       <div className="container-x grid gap-10 lg:grid-cols-12">
         {/* Info cards */}
         <div className="space-y-5 lg:col-span-5">
-          <InfoCard Icon={Mail} title="Email" value="hello@quantastrat.com" hint="Replies within 1 business day" href="mailto:hello@quantastrat.com" />
+          <InfoCard Icon={Mail} title="Email" value="hello@Quantastrat.com" hint="Replies within 1 business day" href="mailto:hello@Quantastrat.com" />
           <InfoCard Icon={Phone} title="Phone" value="+91 80000 00000" hint="Mon—Fri, 10:00 to 19:00 IST" href="tel:+918000000000" />
           <InfoCard Icon={MapPin} title="HQ" value="Bengaluru, India" hint="PAN India delivery centres" />
 

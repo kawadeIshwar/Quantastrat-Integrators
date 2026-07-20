@@ -63,7 +63,7 @@ export async function POST(req: Request) {
 
     const html = `
       <div style="font-family:Inter,Arial,sans-serif;color:#0a0a0a">
-        <h2 style="margin:0 0 12px;color:#E85D04">New enquiry from quantastrat.com</h2>
+        <h2 style="margin:0 0 12px;color:#E85D04">New enquiry from Quantastrat.com</h2>
         <table cellpadding="6" style="border-collapse:collapse;font-size:14px">
           <tr><td><b>Name</b></td><td>${escape(name)}</td></tr>
           <tr><td><b>Email</b></td><td>${escape(email)}</td></tr>

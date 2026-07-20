@@ -16,7 +16,7 @@ const MINI_STATS = [
 
 export default function Overview() {
   return (
-    <section className="relative py-28">
+    <section className="relative py-16">
       <div className="container-x grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <h2 className="heading-lg font-bold text-brand-ink">
@@ -46,10 +46,12 @@ export default function Overview() {
               >
                 {/* Top gradient accent */}
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange to-brand-deep opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-orange/10">
-                  <c.Icon className="h-6 w-6 text-brand-orange" />
+                <div className="flex items-center gap-3">
+                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-orange/10">
+                    <c.Icon className="h-6 w-6 text-brand-orange" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-brand-ink">{c.title}</h3>
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold text-brand-ink">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">{c.desc}</p>
                 <div className="mt-6 h-px w-full bg-gradient-to-r from-orange-200/60 to-transparent" />
                 <div className="mt-4 text-[11px] font-medium uppercase tracking-widest text-gray-400">0{i + 1} / 05</div>

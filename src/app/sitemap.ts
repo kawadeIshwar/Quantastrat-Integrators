@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { JOBS } from "@/lib/jobs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://quantastrat.com";
+  const base = "https://Quantastrat.com";
   const now = new Date();
   const staticPages = ["", "/about", "/services", "/careers", "/contact"].map((p) => ({
     url: `${base}${p}`,

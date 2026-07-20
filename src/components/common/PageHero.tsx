@@ -1,4 +1,4 @@
-﻿import GradientOrbs from "@/components/ui/GradientOrbs";
+import GradientOrbs from "@/components/ui/GradientOrbs";
 
 export default function PageHero({
   eyebrow,

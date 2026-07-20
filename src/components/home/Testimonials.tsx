@@ -20,7 +20,7 @@ const QUOTES = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-28 bg-gradient-to-b from-brand-cream to-white">
+    <section className="relative py-16 bg-gradient-to-b from-brand-cream to-white">
       <div className="container-x text-center">
         <div className="mx-auto w-fit eyebrow mb-5">Loved by talent leaders</div>
         <h2 className="heading-lg mx-auto max-w-3xl font-bold text-brand-ink">

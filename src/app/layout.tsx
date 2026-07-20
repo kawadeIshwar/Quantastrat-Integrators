@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Quantastrat",
     "PAN India Hiring"
   ],
-  metadataBase: new URL("https://quantastrat.com"),
+  metadataBase: new URL("https://Quantastrat.com"),
   openGraph: {
     title: "Quantastrat Integrators",
     description:

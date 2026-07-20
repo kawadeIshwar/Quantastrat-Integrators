@@ -7,16 +7,16 @@ const SERVICES = [
   { Icon: Factory, title: "Manufacturing Recruitment", desc: "Plants, supply chain, R&D and engineering talent." },
   { Icon: UserCheck, title: "Permanent Hiring", desc: "End-to-end search for full-time leadership and IC roles." },
   { Icon: FileSignature, title: "Contract Staffing", desc: "Flexible workforce with fast ramp-up and compliance." },
-  { Icon: ShieldCheck, title: "Payroll & Compliance Management", desc: "Statutory, payroll and compliance handled end-to-end." },
+  { Icon: ShieldCheck, title: "Payroll & Compliance", desc: "Statutory, payroll and compliance handled end-to-end." },
   { Icon: Crown, title: "Executive Search", desc: "Confidential, board-level and C-suite mandates." },
-  { Icon: Workflow, title: "Recruitment Process Outsourcing (RPO)", desc: "Embedded recruitment teams that scale with you." },
+  { Icon: Workflow, title: "Recruitment Process", desc: "Embedded recruitment teams that scale with you." },
   { Icon: Wrench, title: "Non-IT Recruitment", desc: "Sales, ops, finance, HR and shared services." },
   { Icon: Cpu, title: "IT Staffing", desc: "Engineering, data, cloud, security & product roles." }
 ];
 
 export default function Services() {
   return (
-    <section className="relative overflow-hidden py-28 bg-white">
+    <section className="relative overflow-hidden py-16 bg-white">
       {/* Subtle background pattern */}
       <div aria-hidden className="pointer-events-none absolute inset-0 dot-pattern opacity-30" />
 
@@ -38,14 +38,14 @@ export default function Services() {
             <div key={s.title} className="group relative h-full overflow-hidden rounded-3xl border border-orange-100/60 bg-brand-cream p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
               {/* Left gradient accent */}
               <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-brand-orange to-brand-deep opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep">
-                <s.Icon className="h-5 w-5 text-white" />
+              <div className="flex items-center gap-3">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep">
+                  <s.Icon className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-brand-ink">{s.title}</h3>
               </div>
-              <h3 className="mt-5 font-display text-lg font-semibold text-brand-ink">{s.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{s.desc}</p>
-              <div className="mt-6 inline-flex items-center gap-1 text-xs font-semibold text-brand-orange opacity-0 transition-opacity group-hover:opacity-100">
-                Learn more <ArrowUpRight className="h-3.5 w-3.5" />
-              </div>
+
             </div>
           ))}
         </div>

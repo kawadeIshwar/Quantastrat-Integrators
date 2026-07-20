@@ -12,7 +12,7 @@ const VALUES = [
 const TIMELINE = [
   { y: "2019", t: "alabty Recruitment Services Founded", d: "Established with the vision of delivering quality recruitment solutions and building long-term client relationships." },
   { y: "2019", t: "Rapid Job Solutions Founded", d: "Focused on connecting skilled professionals with growing businesses across multiple industries." },
-  { y: "2024", t: "Strategic Merger", d: "The merger of alabty Recruitment Services and Rapid Job Solutions created QuantaStrat Integrators Pvt. Ltd., combining expertise, experience, and capabilities under one organization." },
+  { y: "2024", t: "Strategic Merger", d: "The merger of alabty Recruitment Services and Rapid Job Solutions created Quantastrat Integrators Pvt. Ltd., combining expertise, experience, and capabilities under one organization." },
   { y: "Today", t: "Growing Across India", d: "Delivering integrated workforce solutions across Recruitment, Staffing, Payroll Management, Compliance, and HR Support for businesses nationwide." }
 ];
 
@@ -23,17 +23,17 @@ export default function About() {
       <section className="relative py-28">
         <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
           <div>
-            <div className="eyebrow mb-5">The Foundation of QuantaStrat</div>
+            <div className="eyebrow mb-5">The Foundation of Quantastrat</div>
             <h2 className="heading-lg font-bold text-brand-ink">
               Two Successful Journeys.{" "}
               <span className="text-gradient-orange">One Unified Vision.</span>
             </h2>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Every successful organization is built on great people, and every great partnership begins with trust. QuantaStrat Integrators Pvt. Ltd. was established through the strategic merger of alabty Recruitment Services and Rapid Job Solutions, bringing together years of recruitment expertise, industry relationships, and workforce management experience under one unified brand.
+                Every successful organization is built on great people, and every great partnership begins with trust. Quantastrat Integrators Pvt. Ltd. was established through the strategic merger of alabty Recruitment Services and Rapid Job Solutions, bringing together years of recruitment expertise, industry relationships, and workforce management experience under one unified brand.
               </p>
               <p>
-                This integration enabled us to expand beyond traditional recruitment by offering end-to-end workforce solutions, including staffing, payroll management, statutory compliance, and HR support. Today, QuantaStrat continues to help businesses build stronger teams while simplifying workforce management across India's growing industrial landscape.
+                This integration enabled us to expand beyond traditional recruitment by offering end-to-end workforce solutions, including staffing, payroll management, statutory compliance, and HR support. Today, Quantastrat continues to help businesses build stronger teams while simplifying workforce management across India's growing industrial landscape.
               </p>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function About() {
             {[
               { id: 1, title: "alabty Recruitment Services Founded", desc: "Established with the vision of delivering quality recruitment solutions and building long-term client relationships." },
               { id: 2, title: "Rapid Job Solutions Founded", desc: "Focused on connecting skilled professionals with growing businesses across multiple industries." },
-              { id: 3, title: "Strategic Merger", desc: "The merger of alabty Recruitment Services and Rapid Job Solutions created QuantaStrat Integrators Pvt. Ltd., combining expertise, experience, and capabilities under one organization." },
+              { id: 3, title: "Strategic Merger", desc: "The merger of alabty Recruitment Services and Rapid Job Solutions created Quantastrat Integrators Pvt. Ltd., combining expertise, experience, and capabilities under one organization." },
               { id: 4, title: "Growing Across India", desc: "Delivering integrated workforce solutions across Recruitment, Staffing, Payroll Management, Compliance, and HR Support for businesses nationwide." }
             ].map((item) => (
               <div key={item.id} className="group relative flex items-start gap-4 rounded-2xl border border-orange-100/60 bg-gradient-to-b from-orange-50 to-white p-5 shadow-card transition-all duration-300 hover:scale-[1.02] hover:shadow-card-hover">
@@ -149,7 +149,7 @@ export default function About() {
               <span className="text-gradient-orange">Across India</span>
             </h2>
             <p className="mt-6 max-w-md text-gray-600 leading-relaxed">
-              Today, QuantaStrat Integrators proudly partners with businesses across India's manufacturing, engineering, Oil & Gas, EPC/EPCM, industrial automation, and infrastructure sectors. As we continue to grow, our commitment remains the same—delivering dependable workforce solutions built on trust, expertise, and long-term partnerships.
+              Today, Quantastrat Integrators proudly partners with businesses across India's manufacturing, engineering, Oil & Gas, EPC/EPCM, industrial automation, and infrastructure sectors. As we continue to grow, our commitment remains the same—delivering dependable workforce solutions built on trust, expertise, and long-term partnerships.
             </p>
           </div>
 

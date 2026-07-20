@@ -3,7 +3,7 @@ import { ArrowUpRight, Briefcase } from "lucide-react";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-28">
+    <section className="relative py-16">
       <div className="container-x">
         <div className="relative overflow-hidden rounded-4xl bg-cta-gradient p-8 sm:p-12 md:p-20">
           {/* Decorative circles */}
@@ -15,7 +15,7 @@ export default function FinalCTA() {
             Let's Build Your Workforce Together
           </h2>
           <p className="relative mt-6 max-w-2xl text-sm text-white/80 md:text-lg">
-            Whether you&apos;re hiring one engineer or building an entire plant team, QuantaStrat delivers recruitment, staffing, payroll, and compliance solutions tailored to your business.
+            Whether you&apos;re hiring one engineer or building an entire plant team, Quantastrat delivers recruitment, staffing, payroll, and compliance solutions tailored to your business.
           </p>
           <div className="relative mt-10 flex flex-wrap gap-3 sm:gap-4">
             <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-orange shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-xl sm:px-7 sm:py-3.5">

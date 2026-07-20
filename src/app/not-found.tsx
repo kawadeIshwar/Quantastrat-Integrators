@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import GradientOrbs from "@/components/ui/GradientOrbs";
 
 export default function NotFound() {

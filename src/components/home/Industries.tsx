@@ -16,7 +16,7 @@ const INDUSTRIES = [
 
 export default function Industries() {
   return (
-    <section className="relative py-28">
+    <section className="relative py-16">
       <div className="container-x text-center">
         <h2 className="heading-lg mx-auto max-w-3xl font-bold text-brand-ink">
           Deep domain expertise across{" "}

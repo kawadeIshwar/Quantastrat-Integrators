@@ -10,14 +10,14 @@ const POINTS = [
 
 export default function WhyUs() {
   return (
-    <section className="relative overflow-hidden py-28 bg-white">
+    <section className="relative overflow-hidden py-16 bg-white">
       <div aria-hidden className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
 
       <div className="container-x relative grid items-start gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5 lg:sticky lg:top-32">
           <h2 className="heading-lg font-bold text-brand-ink">
             Why Businesses Choose{" "}
-            <span className="text-gradient-orange">QuantaStrat</span>
+            <span className="text-gradient-orange">Quantastrat</span>
           </h2>
           <p className="mt-6 max-w-md text-gray-600 leading-relaxed">
             We combine deep market intelligence, structured assessments and a relentless candidate experience to deliver outcomes — not just CVs.
