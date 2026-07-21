@@ -26,48 +26,54 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 -z-[5] dot-pattern opacity-25"
       />
 
-      <div className="container-x relative flex min-h-[100svh] items-center py-20 md:py-24 lg:py-28">
+      {/* Account for fixed navbar (~72px) so content is truly centred */}
+      <div className="container-x relative flex min-h-[100svh] items-center pt-[calc(72px+3.5rem)] pb-14 md:pt-[calc(72px+4rem)] md:pb-16 lg:pt-[calc(72px+5rem)] lg:pb-20">
         <div className="w-full">
-          <div className="max-w-6xl">
-            <h1 className="heading-xl max-w-6xl font-bold text-brand-ink text-5xl sm:text-[56px] md:text-[68px] lg:text-[82px]">
+          {/* Heading — uses font-display + tight tracking from scratch, no conflicting heading-xl */}
+          <div className="max-w-5xl">
+            <h1
+              className="font-display font-bold leading-[1.05] tracking-tight text-brand-ink"
+              style={{ fontSize: "clamp(2rem, 8vw, 5.125rem)" }}
+            >
               Recruitment, Staffing,{" "}
-              <span className="whitespace-nowrap">
+              <span>
                 Payroll &amp;{" "}
                 <span className="text-gradient-orange">Compliance</span>
               </span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-gray-600 md:text-lg lg:text-xl">
-              Helping manufacturing and engineering companies build high-performing
-              teams through specialised{" "}
+            <p className="mt-5 max-w-2xl leading-relaxed text-gray-600"
+               style={{ fontSize: "clamp(0.875rem, 2vw, 1.125rem)" }}>
+              Helping manufacturing and engineering companies build
+              high-performing teams through specialised{" "}
               <span className="font-semibold text-brand-ink">
                 recruitment, staffing, payroll management,
               </span>{" "}
               and statutory compliance.
             </p>
 
-            {/* CTA buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* CTA buttons — stacked on mobile, inline from sm */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <Link
                 href="/contact"
-                className="btn-primary min-w-[150px] justify-center"
+                className="btn-primary w-full justify-center sm:w-auto"
               >
-                <Briefcase className="h-4 w-4" />
+                <Briefcase className="h-4 w-4 shrink-0" />
                 Hire Talent
               </Link>
 
               <Link
                 href="/careers"
-                className="btn-ghost group min-w-[170px] justify-center"
+                className="btn-ghost group w-full justify-center sm:w-auto"
               >
                 Explore Openings
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+          {/* Stats — single column on xs, 3-col from sm */}
+          <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
             {STATS.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
@@ -79,10 +85,10 @@ export default function Hero() {
                   </div>
 
                   <div>
-                    <p className="text-xl font-bold leading-none text-gradient-orange md:text-2xl">
+                    <p className="text-xl font-bold leading-none text-gradient-orange sm:text-2xl">
                       {value}
                     </p>
-                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-400">
+                    <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-400">
                       {label}
                     </p>
                   </div>

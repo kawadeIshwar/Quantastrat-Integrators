@@ -1,10 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import Logo from "@/components/ui/Logo";
-
-const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
@@ -63,7 +59,7 @@ export default function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white">Get in touch</h4>
             <ul className="mt-5 space-y-3 text-sm text-gray-400">
               <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-brand-orange" />Pan India · HQ Bengaluru, IN</li>
-              <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-orange" />hello@Quantastrat.com</li>
+              <li suppressHydrationWarning className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-orange" /><a suppressHydrationWarning href="mailto:hello@quantastrat.com" className="transition-colors hover:text-brand-orange">hello@quantastrat.com</a></li>
               <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-orange" />+91 80000 00000</li>
             </ul>
           </div>
@@ -72,7 +68,7 @@ export default function Footer() {
         <div className="relative">
           <div aria-hidden className="mx-auto h-px w-[92%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-gray-500 md:flex-row">
-            <p>© {CURRENT_YEAR} Quantastrat Integrators. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Quantastrat Integrators. All rights reserved.</p>
             <p className="flex items-center gap-4">
               <Link href="#" className="transition-colors hover:text-brand-orange">Privacy</Link>
               <Link href="#" className="transition-colors hover:text-brand-orange">Terms</Link>
