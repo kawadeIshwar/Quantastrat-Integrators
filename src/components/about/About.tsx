@@ -20,7 +20,7 @@ export default function About() {
   return (
     <>
       {/* Our Story */}
-      <section className="relative py-28">
+      <section className="relative py-14">
         <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
           <div>
             <div className="eyebrow mb-5">The Foundation of Quantastrat</div>
@@ -63,7 +63,7 @@ export default function About() {
       </section>
 
       {/* Mission / Vision */}
-      <section className="relative py-28">
+      <section className="relative py-14">
         <div className="container-x grid gap-8 lg:grid-cols-2">
           <div className="group relative overflow-hidden rounded-3xl border border-orange-100/60 bg-white p-10 shadow-card transition-all duration-300 hover:shadow-card-hover">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange to-brand-deep" />
@@ -93,7 +93,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="relative overflow-hidden py-28 bg-white">
+      <section className="relative overflow-hidden py-14 bg-white">
         <div aria-hidden className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
         <div className="container-x relative">
           <div className="text-center">
@@ -121,7 +121,7 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="relative py-28">
+      <section className="relative py-14">
         <div className="container-x">
           <div className="text-center">
             <div className="mx-auto w-fit eyebrow mb-5">Our journey</div>
@@ -145,7 +145,7 @@ export default function About() {
       </section>
 
       {/* Growing Together Across India */}
-      <section className="relative overflow-hidden py-28 bg-white">
+      <section className="relative overflow-hidden pt-14 pb-0 bg-white">
         <div aria-hidden className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
         <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
           <div>
