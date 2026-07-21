@@ -67,21 +67,25 @@ export default function About() {
         <div className="container-x grid gap-8 lg:grid-cols-2">
           <div className="group relative overflow-hidden rounded-3xl border border-orange-100/60 bg-white p-10 shadow-card transition-all duration-300 hover:shadow-card-hover">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange to-brand-deep" />
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-orange/10">
-              <Compass className="h-7 w-7 text-brand-orange" />
+            <div className="flex items-center gap-4">
+              <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-orange/10">
+                <Compass className="h-7 w-7 text-brand-orange" />
+              </div>
+              <h2 className="font-display text-3xl font-bold text-brand-ink">Why We Exist</h2>
             </div>
-            <h2 className="mt-6 font-display text-3xl font-bold text-brand-ink">Why We Exist</h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <p className="mt-6 text-gray-600 leading-relaxed">
               We believe every successful business begins with the right people. Our purpose is to help organizations build stronger teams through reliable workforce solutions while enabling professionals to build meaningful careers.
             </p>
           </div>
           <div className="group relative overflow-hidden rounded-3xl border border-orange-100/60 bg-white p-10 shadow-card transition-all duration-300 hover:shadow-card-hover">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-deep to-brand-orange" />
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-orange/10">
-              <Target className="h-7 w-7 text-brand-orange" />
+            <div className="flex items-center gap-4">
+              <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-orange/10">
+                <Target className="h-7 w-7 text-brand-orange" />
+              </div>
+              <h2 className="font-display text-3xl font-bold text-brand-ink">Our Vision</h2>
             </div>
-            <h2 className="mt-6 font-display text-3xl font-bold text-brand-ink">Our Vision</h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <p className="mt-6 text-gray-600 leading-relaxed">
               To become India's most trusted workforce solutions partner by delivering exceptional talent, operational excellence, and long-term value to businesses across the manufacturing and industrial ecosystem.
             </p>
           </div>
@@ -103,11 +107,13 @@ export default function About() {
             {VALUES.map((v) => (
               <div key={v.t} className="group relative h-full overflow-hidden rounded-3xl border border-orange-100/60 bg-brand-cream p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                 <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-brand-orange to-brand-deep opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep">
-                  <v.Icon className="h-5 w-5 text-white" />
+                <div className="flex items-center gap-3">
+                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep">
+                    <v.Icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-brand-ink">{v.t}</h3>
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold text-brand-ink">{v.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{v.d}</p>
+                <p className="mt-4 text-sm leading-relaxed text-gray-600">{v.d}</p>
               </div>
             ))}
           </div>

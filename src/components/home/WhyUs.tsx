@@ -17,7 +17,7 @@ export default function WhyUs() {
         <div className="lg:col-span-5 lg:sticky lg:top-32">
           <h2 className="heading-lg font-bold text-brand-ink">
             Why Businesses Choose{" "}
-            <span className="text-gradient-orange">Quantastrat</span>
+            <span className="text-gradient-orange">QIPL?</span>
           </h2>
           <p className="mt-6 max-w-md text-gray-600 leading-relaxed">
             We combine deep market intelligence, structured assessments and a relentless candidate experience to deliver outcomes — not just CVs.
