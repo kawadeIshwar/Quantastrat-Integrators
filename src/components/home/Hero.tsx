@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Briefcase, Database, MapPin, Users } from "lucide-react";
 
@@ -27,13 +28,15 @@ export default function Hero() {
       />
 
       {/* Account for fixed navbar (~72px) so content is truly centred */}
-      <div className="container-x relative flex min-h-[100svh] items-center pt-[calc(72px+3.5rem)] pb-14 md:pt-[calc(72px+4rem)] md:pb-16 lg:pt-[calc(72px+5rem)] lg:pb-20">
-        <div className="w-full">
-          {/* Heading — uses font-display + tight tracking from scratch, no conflicting heading-xl */}
-          <div className="max-w-5xl">
+      <div className="container-x relative flex min-h-[100svh] items-center pt-[calc(72px+2rem)] pb-14 md:pt-[calc(72px+2.5rem)] md:pb-16 lg:pt-[calc(72px+3.5rem)] lg:pb-20">
+        {/* Two-column grid: text left, image right */}
+        <div className="grid w-full grid-cols-1 items-stretch gap-10 lg:grid-cols-[1fr_0.6fr] lg:gap-12">
+
+          {/* ── LEFT COLUMN ── */}
+          <div>
             <h1
               className="font-display font-bold leading-[1.05] tracking-tight text-brand-ink"
-              style={{ fontSize: "clamp(2rem, 8vw, 5.125rem)" }}
+              style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}
             >
               Recruitment, Staffing,{" "}
               <span>
@@ -42,8 +45,10 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-5 max-w-2xl leading-relaxed text-gray-600"
-               style={{ fontSize: "clamp(0.875rem, 2vw, 1.125rem)" }}>
+            <p
+              className="mt-5 max-w-xl leading-relaxed text-gray-600"
+              style={{ fontSize: "clamp(0.875rem, 1.6vw, 1.125rem)" }}
+            >
               Helping manufacturing and engineering companies build
               high-performing teams through specialised{" "}
               <span className="font-semibold text-brand-ink">
@@ -52,7 +57,7 @@ export default function Hero() {
               and statutory compliance.
             </p>
 
-            {/* CTA buttons — stacked on mobile, inline from sm */}
+            {/* CTA buttons */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <Link
                 href="/contact"
@@ -70,34 +75,48 @@ export default function Hero() {
                 <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </div>
-          </div>
 
-          {/* Stats — single column on xs, 3-col from sm */}
-          <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-            {STATS.map(({ icon: Icon, value, label }) => (
-              <div
-                key={label}
-                className="group relative overflow-hidden rounded-2xl border border-white/80 bg-white/75 p-5 shadow-card backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-brand-orange/20 hover:shadow-card-hover"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange/15 to-amber-100 ring-1 ring-brand-orange/15">
-                    <Icon className="h-5 w-5 text-brand-orange" />
+            {/* Stats */}
+            <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+              {STATS.map(({ icon: Icon, value, label }) => (
+                <div
+                  key={label}
+                  className="group relative overflow-hidden rounded-2xl border border-white/80 bg-white/75 p-5 shadow-card backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-brand-orange/20 hover:shadow-card-hover"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange/15 to-amber-100 ring-1 ring-brand-orange/15">
+                      <Icon className="h-5 w-5 text-brand-orange" />
+                    </div>
+
+                    <div>
+                      <p className="text-xl font-bold leading-none text-gradient-orange sm:text-2xl">
+                        {value}
+                      </p>
+                      <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-400">
+                        {label}
+                      </p>
+                    </div>
                   </div>
 
-                  <div>
-                    <p className="text-xl font-bold leading-none text-gradient-orange sm:text-2xl">
-                      {value}
-                    </p>
-                    <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-400">
-                      {label}
-                    </p>
-                  </div>
+                  <div className="pointer-events-none absolute inset-0 bg-card-shine opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
-
-                <div className="pointer-events-none absolute inset-0 bg-card-shine opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          {/* ── RIGHT COLUMN — Hero Image ── */}
+          <div className="relative hidden lg:block self-stretch">
+            <div className="absolute inset-0 overflow-hidden rounded-3xl">
+              <Image
+                src="/hero-image-v2.png"
+                alt="Professional recruitment and staffing team"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
