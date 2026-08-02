@@ -34,18 +34,20 @@ function WhyCard({ Icon, title, desc, index }: { Icon: ElementType; title: strin
   return (
     <div className="group relative overflow-hidden rounded-3xl border border-orange-100/70 bg-brand-cream p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
       <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-brand-orange to-amber-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      <div className="flex items-center justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep shadow-glow-sm">
-          <Icon className="h-5 w-5 text-white" />
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep shadow-glow-sm">
+            <Icon className="h-5 w-5 text-white" />
+          </div>
+          <h3 className="font-display text-base font-semibold text-brand-ink transition-colors group-hover:text-brand-orange leading-snug">
+            {title}
+          </h3>
         </div>
-        <span className="text-4xl font-black text-orange-100 transition-colors group-hover:text-orange-200">
+        <span className="shrink-0 text-4xl font-black text-orange-100 transition-colors group-hover:text-orange-200">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
-      <h3 className="mt-5 font-display text-base font-semibold text-brand-ink transition-colors group-hover:text-brand-orange">
-        {title}
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-gray-500">{desc}</p>
+      <p className="mt-4 text-sm leading-relaxed text-gray-500">{desc}</p>
     </div>
   );
 }
@@ -77,7 +79,7 @@ export default function WhyUs() {
         </div>
 
         {/* Row 2 — last 2 cards, centered */}
-        <div className="mt-5 grid gap-5 sm:grid-cols-2 max-w-2xl mx-auto w-full">
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 max-w-3xl mx-auto w-full">
           {POINTS.slice(3).map(({ Icon, title, desc }, i) => (
             <WhyCard key={title} Icon={Icon} title={title} desc={desc} index={i + 3} />
           ))}
