@@ -6,7 +6,7 @@ export default function PageHero({
   description
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description?: string;
 }) {
   return (
@@ -15,9 +15,9 @@ export default function PageHero({
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-[5] dot-pattern opacity-30" />
       <div className="container-x relative z-10 pb-12">
         <div className="eyebrow mb-6">{eyebrow}</div>
-        <h1 className="heading-xl max-w-5xl font-bold text-brand-ink !text-3xl md:!text-5xl lg:!text-[56px]">{title}</h1>
+        <h1 className="heading-xl font-bold text-brand-ink !text-3xl md:!text-5xl lg:!text-[56px]">{title}</h1>
         {description && (
-          <p className="mt-7 max-w-4xl text-lg text-gray-600 leading-relaxed md:text-xl">{description}</p>
+          <p className="mt-7 text-lg text-gray-600 leading-relaxed md:text-xl">{description}</p>
         )}
       </div>
     </section>

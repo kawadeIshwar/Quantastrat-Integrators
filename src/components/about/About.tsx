@@ -1,4 +1,5 @@
 import { Compass, Target, Sparkles, ShieldCheck, Users, Globe2, Heart, FileCheck, Lightbulb } from "lucide-react";
+import IndiaMap from "./IndiaMap";
 
 const VALUES = [
   { Icon: ShieldCheck, t: "Integrity", d: "We act with honesty, transparency, and accountability in every relationship." },
@@ -203,7 +204,7 @@ export default function About() {
       </section>
 
       {/* Growing Together Across India */}
-      <section className="relative overflow-hidden pt-14 pb-0 bg-white">
+      <section className="relative pt-14 pb-14 bg-white">
         <div aria-hidden className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
         <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
           <div>
@@ -217,29 +218,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-orange-100/60 bg-gradient-to-b from-orange-50 to-white p-6 shadow-card">
-            <svg viewBox="0 0 200 240" className="h-full w-full" aria-hidden>
-              <defs>
-                <linearGradient id="ind" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#FF8A3D" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="#E85D04" stopOpacity="0.2" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M100 10 C 130 30, 160 60, 165 110 C 168 150, 145 200, 110 225 C 90 232, 75 215, 70 195 C 60 170, 35 160, 30 130 C 25 95, 55 50, 100 10 Z"
-                fill="url(#ind)"
-                stroke="rgba(255,107,0,0.6)"
-                strokeWidth="1"
-              />
-              {[
-                [98, 130], [115, 90], [80, 160], [130, 150], [60, 95], [120, 200], [70, 50], [140, 110]
-              ].map(([x, y], i) => (
-                <g key={i}>
-                  <circle cx={x} cy={y} r="3" fill="#FF6B00" />
-                  <circle cx={x} cy={y} r="8" fill="#FF6B00" opacity="0.15" />
-                </g>
-              ))}
-            </svg>
+          <div className="relative mx-auto w-full max-w-md rounded-3xl bg-white p-4">
+            <IndiaMap />
           </div>
         </div>
       </section>
