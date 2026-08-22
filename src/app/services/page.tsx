@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/common/PageHero";
 import ServicesContent from "@/components/services/ServicesContent";
+import FinalCTA from "@/components/home/FinalCTA";
 
 export const metadata: Metadata = {
   title: "Services — Quantastrat Integrators",
-  description: "Permanent hiring, contract staffing, RPO, executive search, payroll & compliance, IT, Non-IT and manufacturing recruitment."
+  description: "Manufacturing recruitment, permanent hiring, contract staffing, payroll & compliance, non-IT recruitment, executive search, and RPO — workforce solutions built around your business."
 };
 
 export default function ServicesPage() {
@@ -12,10 +13,11 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Our services"
-        title="End-to-end staffing for every stage of growth."
-        description="From a single specialist hire to embedded RPO programs and executive search — Quantastrat delivers across the full hiring lifecycle."
+        title="Workforce Solutions Built Around Your Business."
+        description="With a strong focus on manufacturing and engineering talent, we provide flexible workforce solutions aligned with your business requirements."
       />
       <ServicesContent />
+      <FinalCTA />
     </>
   );
 }
