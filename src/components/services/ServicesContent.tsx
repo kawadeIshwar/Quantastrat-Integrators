@@ -166,7 +166,7 @@ const PROCESS = [
   { n: "06", t: "Support", d: "Continue supporting the workforce through staffing coordination, payroll, compliance, and client engagement where applicable." }
 ];
 
-const SUPPORT_CATEGORIES = [
+const SUPPORT_ROW_1 = [
   "Manufacturing",
   "Engineering",
   "Oil & Gas",
@@ -174,7 +174,18 @@ const SUPPORT_CATEGORIES = [
   "Automotive & Auto Components",
   "Industrial Automation",
   "Electrical & Electronics",
-  "Industrial Equipment"
+  "Industrial Equipment",
+];
+
+const SUPPORT_ROW_2 = [
+  "Chemicals & Petrochemicals",
+  "Steel & Metals",
+  "Pharmaceuticals",
+  "FMCG & Consumer Goods",
+  "Renewable Energy",
+  "Infrastructure & Construction",
+  "Textiles & Apparel",
+  "Logistics & Warehousing",
 ];
 
 const FAQS = [
@@ -344,21 +355,42 @@ export default function ServicesContent() {
       </section>
 
       {/* ───── Who We Support ───── */}
-      <section className="relative py-16">
+      <section className="relative py-16 overflow-hidden">
         <div className="container-x text-center">
           <div className="eyebrow mx-auto mb-5">Industries</div>
-          <h2 className="heading-md mx-auto max-w-3xl font-bold text-brand-ink">
-            Supporting Businesses Across Key <span className="text-gradient-orange">Industrial & Business Functions</span>
+          <h2 className="heading-md mx-auto max-w-5xl font-bold text-brand-ink">
+            Supporting Businesses Across Key <span className="text-gradient-orange">Industrial &amp; Business Functions</span>
           </h2>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            {SUPPORT_CATEGORIES.map((category) => (
-              <span
-                key={category}
-                className="inline-flex items-center rounded-full border border-orange-100/80 bg-white px-5 py-2.5 text-sm font-medium text-brand-ink shadow-soft transition-all duration-300 hover:border-brand-orange/40 hover:shadow-card"
-              >
-                {category}
-              </span>
-            ))}
+        </div>
+
+        {/* Carousel rows — full-bleed */}
+        <div className="mt-10 space-y-3 carousel-track">
+          {/* Row 1 → scrolls left */}
+          <div className="overflow-hidden carousel-fade">
+            <div className="carousel-row carousel-row-left">
+              {[...SUPPORT_ROW_1, ...SUPPORT_ROW_1, ...SUPPORT_ROW_1].map((cat, i) => (
+                <span
+                  key={`r1-${i}`}
+                  className="inline-flex flex-shrink-0 items-center rounded-full bg-gradient-to-r from-brand-orange to-brand-deep px-5 py-2.5 text-sm font-medium text-white shadow-soft transition-all duration-300 hover:shadow-card whitespace-nowrap"
+                >
+                  {cat}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 → scrolls right */}
+          <div className="overflow-hidden carousel-fade">
+            <div className="carousel-row carousel-row-right">
+              {[...SUPPORT_ROW_2, ...SUPPORT_ROW_2, ...SUPPORT_ROW_2].map((cat, i) => (
+                <span
+                  key={`r2-${i}`}
+                  className="inline-flex flex-shrink-0 items-center rounded-full bg-gradient-to-r from-brand-orange to-brand-deep px-5 py-2.5 text-sm font-medium text-white shadow-soft transition-all duration-300 hover:shadow-card whitespace-nowrap"
+                >
+                  {cat}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
