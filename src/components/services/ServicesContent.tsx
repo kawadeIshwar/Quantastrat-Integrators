@@ -222,28 +222,35 @@ function ServiceCard({
         aria-expanded={isOpen}
         aria-controls={panelId}
         onClick={onToggle}
-        className="flex w-full items-start justify-between gap-4 p-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-inset md:p-10"
+        className="flex w-full flex-col p-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-inset md:p-10"
       >
-        <div className="flex items-start gap-5 md:gap-6">
-          {/* Icon */}
-          <div className="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep shadow-glow-sm">
-            <service.Icon className="h-6 w-6 text-white" />
-          </div>
-          {/* Title area */}
-          <div className="min-w-0">
-            <div className="flex items-center gap-3">
-              <span className="font-display text-sm font-bold tracking-wide text-brand-orange/60">{service.number}</span>
+        {/* Header row: icon + title + chevron */}
+        <div className="flex w-full items-center justify-between gap-4 md:items-start">
+          <div className="flex items-center gap-4 md:items-start md:gap-6">
+            {/* Icon */}
+            <div className="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep shadow-glow-sm">
+              <service.Icon className="h-6 w-6 text-white" />
             </div>
-            <h3 className="mt-1 font-display text-xl font-bold text-brand-ink md:text-2xl">{service.title}</h3>
-            <p className="mt-2 max-w-2xl text-gray-600 leading-relaxed">{service.description}</p>
+            {/* Title area */}
+            <div className="min-w-0">
+              {/* Number — hidden on small screens */}
+              <div className="hidden items-center gap-3 md:flex">
+                <span className="font-display text-sm font-bold tracking-wide text-brand-orange/60">{service.number}</span>
+              </div>
+              <h3 className="font-display text-xl font-bold text-brand-ink md:mt-1 md:text-2xl">{service.title}</h3>
+              {/* Description — desktop only (inline with title) */}
+              <p className="mt-2 hidden max-w-2xl text-gray-600 leading-relaxed md:block">{service.description}</p>
+            </div>
+          </div>
+          {/* Expand indicator */}
+          <div className="flex-shrink-0">
+            <div className={`flex h-9 w-9 items-center justify-center rounded-full border border-orange-200 transition-all duration-300 ${isOpen ? "bg-brand-orange border-brand-orange" : "bg-white"}`}>
+              <ChevronDown className={`h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180 text-white" : "text-brand-orange"}`} />
+            </div>
           </div>
         </div>
-        {/* Expand indicator */}
-        <div className="mt-1 flex-shrink-0">
-          <div className={`flex h-9 w-9 items-center justify-center rounded-full border border-orange-200 transition-all duration-300 ${isOpen ? "bg-brand-orange border-brand-orange" : "bg-white"}`}>
-            <ChevronDown className={`h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180 text-white" : "text-brand-orange"}`} />
-          </div>
-        </div>
+        {/* Description — mobile only (full width below icon row) */}
+        <p className="mt-3 text-gray-600 leading-relaxed md:hidden">{service.description}</p>
       </button>
 
       {/* Expandable detail area */}
@@ -303,7 +310,7 @@ export default function ServicesContent() {
   return (
     <>
       {/* ───── Service Offerings ───── */}
-      <section className="relative py-24">
+      <section className="relative py-14">
         <div className="container-x">
           <div className="eyebrow mb-5">Service offerings</div>
           <h2 className="heading-lg max-w-3xl font-bold text-brand-ink">
@@ -327,7 +334,7 @@ export default function ServicesContent() {
       </section>
 
       {/* ───── How We Deliver ───── */}
-      <section className="relative py-24">
+      <section className="relative py-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 dot-pattern opacity-20" />
         <div className="container-x relative">
           <div className="eyebrow mb-5">How we deliver</div>
@@ -355,7 +362,7 @@ export default function ServicesContent() {
       </section>
 
       {/* ───── Who We Support ───── */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-10 overflow-hidden">
         <div className="container-x text-center">
           <div className="eyebrow mx-auto mb-5">Industries</div>
           <h2 className="heading-md mx-auto max-w-5xl font-bold text-brand-ink">
@@ -396,7 +403,7 @@ export default function ServicesContent() {
       </section>
 
       {/* ───── FAQ ───── */}
-      <section className="relative py-24">
+      <section className="relative py-14">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="eyebrow mb-5">FAQ</div>

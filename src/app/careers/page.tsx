@@ -34,7 +34,7 @@ export default function CareersPage() {
               <span className="text-gradient-orange">Career Move.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 leading-relaxed">
-              Join India&apos;s fastest-growing recruitment network. We connect exceptional professionals 
+              Join India&apos;s fastest-growing recruitment network. We connect exceptional professionals
               with leading enterprises across IT, Non-IT, Manufacturing and Leadership roles.
             </p>
           </div>
