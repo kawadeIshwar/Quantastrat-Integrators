@@ -20,12 +20,20 @@ export default function CareersPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-hero-gradient pt-40 pb-0 md:pt-48">
+      <section
+        className="relative isolate overflow-hidden pt-28 pb-0 md:pt-32"
+        style={{ background: "linear-gradient(135deg, #fff7ed 0%, #ffedd5 30%, #fed7aa 60%, #fff7ed 100%)" }}
+      >
         <GradientOrbs />
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-[5] dot-pattern opacity-30" />
         {/* Decorative rings */}
         <div aria-hidden className="pointer-events-none absolute -right-32 top-20 h-96 w-96 rounded-full border border-brand-orange/10" />
         <div aria-hidden className="pointer-events-none absolute -left-20 bottom-0 h-64 w-64 rounded-full border border-brand-orange/5" />
+        {/* Subtle warm glow */}
+        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-brand-orange/8 blur-[120px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-20 left-10 h-[300px] w-[300px] rounded-full bg-orange-300/10 blur-[100px]" />
+        {/* Bottom white fade */}
+        <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fffaf6] to-transparent z-[5]" />
 
         <div className="container-x relative z-10">
           {/* Split hero: text left, image right */}
@@ -62,7 +70,7 @@ export default function CareersPage() {
                 {/* Soft fade on the left edge so it blends into the background */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-r from-[#FFF3E8]/80 via-transparent to-transparent lg:block hidden"
+                  className="absolute inset-0 bg-gradient-to-r from-[#fff7ed]/80 via-transparent to-transparent lg:block hidden"
                 />
               </div>
             </div>

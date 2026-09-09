@@ -1,101 +1,281 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Search, MapPin, Clock, Briefcase, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  Clock,
+  Briefcase,
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  Factory,
+  Building2,
+  Timer,
+  UserCheck,
+} from "lucide-react";
 import { JOBS, JOB_CATEGORIES, JOB_LOCATIONS, type Job } from "@/lib/jobs";
 
 const PER_PAGE = 6;
 
+/* ─── Filter option sets ─── */
+const INDUSTRIES = ["All Industries", "IT", "Non-IT", "Manufacturing", "Leadership"] as const;
+const POSITIONS = ["All Positions", ...Array.from(new Set(JOBS.map((j) => j.title)))] as const;
+const LOCATIONS = ["All Locations", ...JOB_LOCATIONS.filter((l) => l !== "All")] as const;
+const EXPERIENCES = ["All Experience", "0-3 years", "3-6 years", "4-7 years", "5-8 years", "6-9 years", "7-10 years", "8-12 years", "10-15 years", "12-18 years"] as const;
+const EMPLOYMENT_TYPES = ["All Types", "Full-time", "Contract", "Hybrid", "Remote"] as const;
+
+const POPULAR_SEARCHES = [
+  "Production Engineer",
+  "Quality Engineer",
+  "Mechanical Engineer",
+  "Design Engineer",
+  "Plant Manager",
+  "HR Executive",
+];
+
+/* ─── Dropdown component ─── */
+type DropdownProps = {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  options: readonly string[];
+  onChange: (v: string) => void;
+};
+
+function FilterDropdown({ icon, label, value, options, onChange }: DropdownProps) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative flex-1 min-w-[160px]">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className={`w-full flex items-center gap-2.5 rounded-xl border bg-white px-4 py-3 text-left transition-all duration-200 ${
+          open
+            ? "border-brand-orange shadow-md"
+            : "border-gray-200 hover:border-gray-300 shadow-sm"
+        }`}
+      >
+        <span className="text-gray-400 flex-shrink-0">{icon}</span>
+        <span className="flex-1 min-w-0">
+          <span className="block text-xs font-semibold text-gray-800 leading-tight">{label}</span>
+          <span className="block text-[11px] text-gray-400 leading-tight truncate">{value}</span>
+        </span>
+        <ChevronDown
+          className={`h-3.5 w-3.5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {open && (
+        <div className="absolute left-0 top-[calc(100%+6px)] z-50 w-full min-w-[200px] max-h-60 overflow-y-auto rounded-xl border border-gray-200 bg-white py-1 shadow-lg animate-in fade-in slide-in-from-top-2">
+          {options.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => {
+                onChange(opt);
+                setOpen(false);
+              }}
+              className={`w-full px-4 py-2.5 text-left text-sm transition-colors ${
+                value === opt
+                  ? "bg-brand-orange/10 text-brand-orange font-medium"
+                  : "text-gray-600 hover:bg-gray-50"
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Main board ─── */
 export default function JobsBoard() {
   const [q, setQ] = useState("");
-  const [cat, setCat] = useState<string>("All");
-  const [loc, setLoc] = useState<string>("All");
+  const [industry, setIndustry] = useState("All Industries");
+  const [position, setPosition] = useState("All Positions");
+  const [loc, setLoc] = useState("All Locations");
+  const [exp, setExp] = useState("All Experience");
+  const [empType, setEmpType] = useState("All Types");
   const [page, setPage] = useState(1);
+
+  const resetPage = useCallback(() => setPage(1), []);
 
   const filtered = useMemo(() => {
     const ql = q.trim().toLowerCase();
     return JOBS.filter((j) => {
-      const matchQ = !ql ||
+      const matchQ =
+        !ql ||
         j.title.toLowerCase().includes(ql) ||
         j.skills.some((s) => s.toLowerCase().includes(ql)) ||
         j.location.toLowerCase().includes(ql);
-      const matchCat = cat === "All" || j.category === cat;
-      const matchLoc = loc === "All" || j.location.toLowerCase().includes(loc.toLowerCase());
-      return matchQ && matchCat && matchLoc;
+      const matchIndustry =
+        industry === "All Industries" || j.category === industry;
+      const matchPosition =
+        position === "All Positions" || j.title === position;
+      const matchLoc =
+        loc === "All Locations" ||
+        j.location.toLowerCase().includes(loc.toLowerCase());
+      const matchExp =
+        exp === "All Experience" || j.experience === exp;
+      const matchType =
+        empType === "All Types" || j.type === empType;
+      return matchQ && matchIndustry && matchPosition && matchLoc && matchExp && matchType;
     });
-  }, [q, cat, loc]);
+  }, [q, industry, position, loc, exp, empType]);
 
   const pages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
   const current = Math.min(page, pages);
   const slice = filtered.slice((current - 1) * PER_PAGE, current * PER_PAGE);
 
+  const handlePopularSearch = (term: string) => {
+    setQ(term);
+    setPage(1);
+  };
+
   return (
-    <section className="relative py-20">
+    <section className="relative pt-[45px] pb-20">
       <div className="container-x">
-        {/* Search bar */}
-        <div className="relative mx-auto max-w-2xl">
-          <div className="flex items-center gap-3 rounded-2xl border border-orange-100/60 bg-white px-5 shadow-card transition-shadow focus-within:shadow-card-hover">
-            <Search className="h-5 w-5 text-brand-orange" />
-            <input
-              value={q}
-              onChange={(e) => { setQ(e.target.value); setPage(1); }}
-              placeholder="Search by job title, skill or city..."
-              className="w-full bg-transparent py-4 text-base text-brand-ink placeholder:text-gray-400 focus:outline-none"
-              aria-label="Search jobs"
-            />
-            {q && (
-              <button onClick={() => { setQ(""); setPage(1); }} className="text-xs font-medium text-gray-400 hover:text-brand-orange">
-                Clear
+        {/* ── Search panel ── */}
+        <div className="mx-auto max-w-7xl">
+          {/* Top orange line accent */}
+          <div className="h-1 rounded-t-2xl bg-gradient-to-r from-brand-orange to-brand-deep" />
+
+          <div className="rounded-b-2xl border border-t-0 border-gray-200/80 bg-white px-6 py-6 shadow-lg md:px-8 md:py-8">
+            {/* Search input + button */}
+            <div className="flex items-center gap-3">
+              <div className="flex flex-1 items-center gap-3 rounded-xl border border-gray-200 bg-gray-50/60 px-4 py-3 transition-all focus-within:border-brand-orange focus-within:bg-white focus-within:shadow-sm">
+                <Search className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                <input
+                  value={q}
+                  onChange={(e) => {
+                    setQ(e.target.value);
+                    resetPage();
+                  }}
+                  placeholder="Search by job title, skill, company or location"
+                  className="w-full bg-transparent text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none"
+                  aria-label="Search jobs"
+                />
+                {q && (
+                  <button
+                    onClick={() => {
+                      setQ("");
+                      resetPage();
+                    }}
+                    className="text-xs font-medium text-gray-400 hover:text-brand-orange whitespace-nowrap"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <button
+                className="flex-shrink-0 rounded-xl bg-brand-orange px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-brand-deep hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Search Jobs
               </button>
-            )}
-          </div>
-        </div>
+            </div>
 
-        {/* Category tabs */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          {(JOB_CATEGORIES as readonly string[]).map((c) => (
-            <button
-              key={c}
-              onClick={() => { setCat(c); setPage(1); }}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
-                cat === c
-                  ? "bg-gradient-to-r from-brand-orange to-brand-deep text-white shadow-glow-sm"
-                  : "border border-orange-100/60 bg-white text-gray-600 hover:border-brand-orange/40 hover:text-brand-orange"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+            {/* Filter dropdowns */}
+            <div className="mt-5 flex flex-wrap gap-3">
+              <FilterDropdown
+                icon={<Factory className="h-4 w-4" />}
+                label="Industry"
+                value={industry}
+                options={INDUSTRIES}
+                onChange={(v) => { setIndustry(v); resetPage(); }}
+              />
+              <FilterDropdown
+                icon={<UserCheck className="h-4 w-4" />}
+                label="Position"
+                value={position}
+                options={POSITIONS}
+                onChange={(v) => { setPosition(v); resetPage(); }}
+              />
+              <FilterDropdown
+                icon={<MapPin className="h-4 w-4" />}
+                label="Location"
+                value={loc}
+                options={LOCATIONS}
+                onChange={(v) => { setLoc(v); resetPage(); }}
+              />
+              <FilterDropdown
+                icon={<Timer className="h-4 w-4" />}
+                label="Experience"
+                value={exp}
+                options={EXPERIENCES}
+                onChange={(v) => { setExp(v); resetPage(); }}
+              />
+              <FilterDropdown
+                icon={<Building2 className="h-4 w-4" />}
+                label="Employment Type"
+                value={empType}
+                options={EMPLOYMENT_TYPES}
+                onChange={(v) => { setEmpType(v); resetPage(); }}
+              />
+            </div>
 
-        {/* Location filter + results count */}
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-gray-500">Location:</span>
-            <div className="flex flex-wrap gap-1.5">
-              {(JOB_LOCATIONS as readonly string[]).map((l) => (
+            {/* Popular Searches */}
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="text-sm font-semibold text-gray-700 mr-1">
+                Popular Searches:
+              </span>
+              {POPULAR_SEARCHES.map((term) => (
                 <button
-                  key={l}
-                  onClick={() => { setLoc(l); setPage(1); }}
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
-                    loc === l
-                      ? "bg-brand-orange/10 text-brand-orange border border-brand-orange/30"
-                      : "border border-orange-100/60 bg-white text-gray-500 hover:text-brand-orange hover:border-brand-orange/30"
-                  }`}
+                  key={term}
+                  onClick={() => handlePopularSearch(term)}
+                  className="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 transition-all duration-200 hover:border-brand-orange/40 hover:text-brand-orange hover:bg-brand-orange/5"
                 >
-                  {l}
+                  {term}
                 </button>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Results count */}
+        <div className="mx-auto mt-8 max-w-7xl flex items-center justify-between">
           <span className="text-sm font-medium text-gray-500">
             {filtered.length} role{filtered.length === 1 ? "" : "s"} found
           </span>
+          {(industry !== "All Industries" ||
+            position !== "All Positions" ||
+            loc !== "All Locations" ||
+            exp !== "All Experience" ||
+            empType !== "All Types" ||
+            q) && (
+            <button
+              onClick={() => {
+                setQ("");
+                setIndustry("All Industries");
+                setPosition("All Positions");
+                setLoc("All Locations");
+                setExp("All Experience");
+                setEmpType("All Types");
+                resetPage();
+              }}
+              className="text-xs font-medium text-brand-orange hover:underline"
+            >
+              Clear all filters
+            </button>
+          )}
         </div>
 
         {/* Job grid */}
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {slice.map((j) => (
             <JobCard key={j.slug} job={j} />
           ))}
@@ -110,7 +290,15 @@ export default function JobsBoard() {
             <h3 className="font-display text-2xl font-bold text-brand-ink">No matching roles</h3>
             <p className="mt-2 text-gray-500">Try clearing filters or contact us — new roles open every week.</p>
             <button
-              onClick={() => { setQ(""); setCat("All"); setLoc("All"); setPage(1); }}
+              onClick={() => {
+                setQ("");
+                setIndustry("All Industries");
+                setPosition("All Positions");
+                setLoc("All Locations");
+                setExp("All Experience");
+                setEmpType("All Types");
+                resetPage();
+              }}
               className="btn-primary mt-6"
             >
               Clear all filters
