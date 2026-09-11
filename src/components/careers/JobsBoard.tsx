@@ -61,11 +61,10 @@ function FilterDropdown({ icon, label, value, options, onChange }: DropdownProps
     <div ref={ref} className="relative flex-1 min-w-[160px]">
       <button
         onClick={() => setOpen((o) => !o)}
-        className={`w-full flex items-center gap-2.5 rounded-xl border bg-white px-4 py-3 text-left transition-all duration-200 ${
-          open
-            ? "border-brand-orange shadow-md"
-            : "border-gray-200 hover:border-gray-300 shadow-sm"
-        }`}
+        className={`w-full flex items-center gap-2.5 rounded-xl border bg-white px-4 py-3 text-left transition-all duration-200 ${open
+          ? "border-brand-orange shadow-md"
+          : "border-gray-200 hover:border-gray-300 shadow-sm"
+          }`}
       >
         <span className="text-gray-400 flex-shrink-0">{icon}</span>
         <span className="flex-1 min-w-0">
@@ -73,9 +72,8 @@ function FilterDropdown({ icon, label, value, options, onChange }: DropdownProps
           <span className="block text-[11px] text-gray-400 leading-tight truncate">{value}</span>
         </span>
         <ChevronDown
-          className={`h-3.5 w-3.5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`h-3.5 w-3.5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -88,11 +86,10 @@ function FilterDropdown({ icon, label, value, options, onChange }: DropdownProps
                 onChange(opt);
                 setOpen(false);
               }}
-              className={`w-full px-4 py-2.5 text-left text-sm transition-colors ${
-                value === opt
-                  ? "bg-brand-orange/10 text-brand-orange font-medium"
-                  : "text-gray-600 hover:bg-gray-50"
-              }`}
+              className={`w-full px-4 py-2.5 text-left text-sm transition-colors ${value === opt
+                ? "bg-brand-orange/10 text-brand-orange font-medium"
+                : "text-gray-600 hover:bg-gray-50"
+                }`}
             >
               {opt}
             </button>
@@ -257,21 +254,21 @@ export default function JobsBoard() {
             exp !== "All Experience" ||
             empType !== "All Types" ||
             q) && (
-            <button
-              onClick={() => {
-                setQ("");
-                setIndustry("All Industries");
-                setPosition("All Positions");
-                setLoc("All Locations");
-                setExp("All Experience");
-                setEmpType("All Types");
-                resetPage();
-              }}
-              className="text-xs font-medium text-brand-orange hover:underline"
-            >
-              Clear all filters
-            </button>
-          )}
+              <button
+                onClick={() => {
+                  setQ("");
+                  setIndustry("All Industries");
+                  setPosition("All Positions");
+                  setLoc("All Locations");
+                  setExp("All Experience");
+                  setEmpType("All Types");
+                  resetPage();
+                }}
+                className="text-xs font-medium text-brand-orange hover:underline"
+              >
+                Clear all filters
+              </button>
+            )}
         </div>
 
         {/* Job grid */}
@@ -323,11 +320,10 @@ export default function JobsBoard() {
                 <button
                   key={n}
                   onClick={() => setPage(n)}
-                  className={`h-10 w-10 rounded-xl text-sm font-medium transition-all duration-200 ${
-                    active
-                      ? "bg-gradient-to-br from-brand-orange to-brand-deep text-white shadow-glow-sm"
-                      : "border border-orange-100/60 bg-white text-gray-600 hover:border-brand-orange hover:text-brand-orange"
-                  }`}
+                  className={`h-10 w-10 rounded-xl text-sm font-medium transition-all duration-200 ${active
+                    ? "bg-gradient-to-br from-brand-orange to-brand-deep text-white shadow-glow-sm"
+                    : "border border-orange-100/60 bg-white text-gray-600 hover:border-brand-orange hover:text-brand-orange"
+                    }`}
                 >
                   {n}
                 </button>

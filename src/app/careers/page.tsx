@@ -77,7 +77,7 @@ export default function CareersPage() {
           </div>
 
           {/* Stats row */}
-          <div className="relative z-10 mx-auto mt-8 mb-8 grid grid-cols-2 gap-6 md:grid-cols-4 max-w-5xl">
+          <div className="relative z-10 mx-auto mt-14 mb-8 grid grid-cols-2 gap-6 md:grid-cols-4 max-w-5xl">
             {STATS.map((s) => (
               <div
                 key={s.label}
@@ -105,3 +105,4 @@ export default function CareersPage() {
     </>
   );
 }
+
