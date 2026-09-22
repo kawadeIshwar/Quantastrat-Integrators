@@ -58,8 +58,8 @@ export default function Footer() {
           <div className="md:col-span-3">
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white">Get in touch</h4>
             <ul className="mt-5 space-y-3 text-sm text-gray-400">
-              <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-brand-orange" />Pan India · HQ Bengaluru, IN</li>
-              <li suppressHydrationWarning className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-orange" /><a suppressHydrationWarning href="mailto:hello@quantastrat.com" className="transition-colors hover:text-brand-orange">hello@quantastrat.com</a></li>
+              <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-brand-orange" />Office 307, Amanora Chambers, Hadapsar, Pune</li>
+              <li suppressHydrationWarning className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-orange" /><a suppressHydrationWarning href="mailto:clients@quantastrat.com" className="transition-colors hover:text-brand-orange">clients@quantastrat.com</a></li>
               <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-orange" />+91 80000 00000</li>
             </ul>
           </div>
