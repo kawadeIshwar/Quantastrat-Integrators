@@ -15,6 +15,8 @@ import {
   Building2,
   Timer,
   UserCheck,
+  FileText,
+  Upload,
 } from "lucide-react";
 import { JOBS, JOB_CATEGORIES, JOB_LOCATIONS, type Job } from "@/lib/jobs";
 
@@ -277,6 +279,37 @@ export default function JobsBoard() {
             <JobCard key={j.slug} job={j} />
           ))}
         </div>
+
+        {/* Don't see the right opportunity? banner */}
+        {filtered.length > 0 && (
+          <div className="mx-auto mt-5 max-w-7xl">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-orange-100/80 bg-white px-6 py-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-brand-orange/30">
+              <div className="flex items-center gap-4">
+                {/* Icon */}
+                <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-orange/10">
+                  <FileText className="h-6 w-6 text-brand-orange" />
+                </div>
+                {/* Text */}
+                <div>
+                  <p className="font-semibold text-brand-ink text-sm leading-tight">
+                    Don&apos;t see the right opportunity?
+                  </p>
+                  <p className="mt-0.5 text-xs text-gray-500 leading-relaxed max-w-xs">
+                    Submit your resume and we&apos;ll consider your profile for upcoming opportunities that match your experience.
+                  </p>
+                </div>
+              </div>
+              {/* CTA Button */}
+              <a
+                href="mailto:careers@quantastrat.com?subject=Resume%20Submission"
+                className="flex-shrink-0 inline-flex items-center gap-2 rounded-xl border-2 border-brand-orange bg-white px-5 py-2.5 text-sm font-semibold text-brand-orange transition-all duration-200 hover:bg-brand-orange hover:text-white hover:shadow-md active:scale-[0.98]"
+              >
+                <Upload className="h-4 w-4" />
+                Submit Resume
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* Empty state */}
         {filtered.length === 0 && (
