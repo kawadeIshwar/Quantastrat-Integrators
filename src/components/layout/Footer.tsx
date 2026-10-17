@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               {[
-                { Icon: Linkedin, href: "#" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/quantastrat-integrators/?viewAsMember=true" },
                 { Icon: Twitter, href: "#" },
                 { Icon: Facebook, href: "#" },
                 { Icon: Instagram, href: "#" }
@@ -25,6 +25,8 @@ export default function Footer() {
                 <Link
                   key={i}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="social link"
                   className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-400 transition-all hover:-translate-y-0.5 hover:border-brand-orange hover:text-brand-orange"
                 >
@@ -60,7 +62,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-gray-400">
               <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-brand-orange" />Office 307, Amanora Chambers, Hadapsar, Pune</li>
               <li suppressHydrationWarning className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-orange" /><a suppressHydrationWarning href="mailto:clients@quantastrat.com" className="transition-colors hover:text-brand-orange">clients@quantastrat.com</a></li>
-              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-orange" />+91 80000 00000</li>
+              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-orange" />+91 86238 32899</li>
             </ul>
           </div>
         </div>

@@ -14,13 +14,14 @@ export default function ContactSection() {
     setStatus("submitting");
     setError("");
     const fd = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(fd.entries());
 
     try {
-      const res = await fetch("/api/contact", {
+      // Formspree endpoint — replace YOUR_FORM_ID with your actual Formspree form ID
+      // Sign up free at https://formspree.io and create a new form to get your ID
+      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: fd,
+        headers: { Accept: "application/json" }
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data?.error || "Something went wrong. Please try again.");
@@ -38,7 +39,7 @@ export default function ContactSection() {
         {/* Info cards */}
         <div className="space-y-5 lg:col-span-5">
           <InfoCard Icon={Mail} title="B2B Inquiry" value="clients@quantastrat.com" hint="Replies within 1 business day" href="mailto:clients@quantastrat.com" />
-          <InfoCard Icon={Phone} title="Phone" value="+91 80000 00000" hint="Mon—Fri, 10:00 to 19:00 IST" href="tel:+918000000000" />
+          <InfoCard Icon={Phone} title="Phone" value="+91 86238 32899" hint="Mon—Fri, 10:00 to 19:00 IST" href="tel:+918623832899" />
           <InfoCard Icon={MapPin} title="Office" value="Office 307, Amanora Chambers" hint="Hadapsar, Pune" />
 
           <div className="overflow-hidden rounded-3xl border border-orange-100/60 shadow-card">
