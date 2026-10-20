@@ -290,15 +290,15 @@ export default function ProjectsContent() {
                 {/* Top accent bar */}
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange to-brand-deep opacity-0 transition-opacity group-hover:opacity-100" />
 
-                {/* Icon */}
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep shadow-glow-sm">
-                  <d.icon className="h-5 w-5 text-white" />
+                {/* Icon + Title row */}
+                <div className="flex items-center gap-4">
+                  <div className="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-orange to-brand-deep shadow-glow-sm">
+                    <d.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-brand-ink">
+                    {d.title}
+                  </h3>
                 </div>
-
-                {/* Title & description */}
-                <h3 className="mt-6 font-display text-xl font-bold text-brand-ink">
-                  {d.title}
-                </h3>
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">
                   {d.description}
                 </p>
